@@ -1,0 +1,13 @@
+@import "./_GlobalVariables.scss";
+
+.desktop-navigation {
+    span{
+        color: $red;
+    }
+    input{
+        background-color: #23232D;
+    }
+    .login-btn{
+        background-color: $red;
+    }
+}

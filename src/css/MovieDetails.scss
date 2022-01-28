@@ -1,0 +1,19 @@
+.movie-details {
+    position: relative;
+    .details {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -40%);
+        .title {
+            font-weight: 600;
+            font-size: clamp(3rem, 4vw, 7rem);
+        }
+    }
+    .movie-backdrop {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+        opacity: 0.6;
+    }
+}

@@ -1,0 +1,44 @@
+@import "./_GlobalVariables.scss";
+.heart-icon-wrap {
+    transition: 0.2s ease-in-out;
+    position: relative;
+    margin: 0.5rem;
+    .heart-icon {
+        display: none;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        &:hover {
+            color: $red;
+        }
+    }
+    &:hover .heart-icon {
+        display: block;
+    }
+    &:hover img {
+        filter: brightness(50%);
+        -webkit-filter: brightness(50%);
+    }
+    img {
+        width: 230px;
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .heart-icon-wrap {
+        img {
+            width: 180px;
+            height: 280px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .heart-icon-wrap {
+        img {
+            width: 130px;
+            height: 200px;
+        }
+    }
+}

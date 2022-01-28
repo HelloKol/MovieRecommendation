@@ -1,0 +1,53 @@
+@import "./_GlobalVariables.scss";
+
+.movies-list {
+    transition: 0.2s ease-in-out;
+    position: relative;
+    h4,
+    p {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+    }
+    .heart-icon {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        &:hover {
+            color: $red;
+        }
+    }
+    .details {
+        display: none;
+    }
+    &:hover .details {
+        display: block;
+    }
+
+    &:hover img {
+        filter: brightness(50%);
+        -webkit-filter: brightness(50%);
+    }
+    img {
+        width: 230px;
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .movies-list {
+        img {
+            width: 180px;
+            height: 280px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .movies-list {
+        img {
+            width: 130px;
+            height: 200px;
+        }
+    }
+}

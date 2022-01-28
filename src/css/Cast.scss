@@ -1,0 +1,23 @@
+.cast-details {
+    width: max-content;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    .cast-box {
+        p {
+            position: relative;
+        }
+        img {
+            pointer-events: none;
+            border-radius: 5px;
+            height: 300px;
+            display: none;
+            z-index: 1;
+            position: absolute;
+            transition: all 0.25s ease-in-out;
+        }
+    }
+    .cast-box:hover img {
+        display: block;
+    }
+}

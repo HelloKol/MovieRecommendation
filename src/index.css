@@ -1,0 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /* background-color: #010511; */
+  background-color: #0F1015;
+  /* background-color: black; */
+  color: white !important;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

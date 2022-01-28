@@ -1,0 +1,20 @@
+@import "./_GlobalVariables.scss";
+
+.summary {
+    .summary-details {
+        width: max-content;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        .status {
+            width: max-content;
+        }
+        img {
+            max-height: 350px;
+            max-width: 250px;
+        }
+        h1 {
+            color: $orange;
+        }
+    }
+}

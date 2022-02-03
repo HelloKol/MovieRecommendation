@@ -29,7 +29,7 @@ function App() {
               component={ViewAll}
             />
             <Route path="/mywatchlist" exact component={Watchlist} />
-            <Route path="/profile/:name" exact component={Profile} />
+            {/* <Route path="/profile/:name" exact component={Profile} /> */}
             <Route path="/request" exact component={Request} />
 
             <Route path="/auth" exact component={Authentication} />

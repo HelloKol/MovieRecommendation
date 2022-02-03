@@ -21,7 +21,6 @@ export default function Home() {
         `${process.env.REACT_APP_API_URL}/now_playing?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
       )
       .then((res) => {
-        console.log(res.data.results);
         setNowPlaying(res.data.results);
       });
 
@@ -91,7 +90,7 @@ export default function Home() {
               Explore more and more <br /> exclusive movies here on MovieZen
             </h1>
             <div className="flex flex-row">
-              <button class="text-white font-bold py-3 px-8 mr-5 rounded-full">
+              <button className="text-white font-bold py-3 px-8 mr-5 rounded-full">
                 Get updated
               </button>{" "}
               <h3 className="self-center">Only for $5 a month!</h3>

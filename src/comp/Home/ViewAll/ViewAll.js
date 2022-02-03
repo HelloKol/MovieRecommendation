@@ -10,18 +10,20 @@ export default function ViewAll(props) {
   const pageNumbers = [1, 2, 3, 4];
 
   useEffect(() => {
-    let isMounted = true;
+    // let isMounted = true;
     getHeader();
-    getMoreMovies();
   }, [props.match.params.number]);
 
   const getHeader = () => {
     if (props.location.pathname.includes("/category/now_playing")) {
       setHeader("Now playing");
+      getMoreMovies();
     } else if (props.location.pathname.includes("/category/upcoming")) {
       setHeader("Upcoming Movies");
+      getMoreMovies();
     } else if (props.location.pathname.includes("/category/top_rated")) {
       setHeader("Top Movies");
+      getMoreMovies();
     } else {
       setHeader(props.location.pathname.slice(10, -7));
       getSearchedMovies();
@@ -43,10 +45,7 @@ export default function ViewAll(props) {
       .get(
         `${process.env.REACT_APP_SEARCH_API_URL}api_key=${
           process.env.REACT_APP_API_KEY
-        }&language=en-US&query=${props.location.pathname.slice(
-          10,
-          -7
-        )}&page=1`
+        }&language=en-US&query=${props.location.pathname.slice(10, -7)}&page=1`
       )
       .then((res) => {
         setMoreMovies(res.data.results);
@@ -97,9 +96,12 @@ export default function ViewAll(props) {
         )}
       </div>
       {moreMovies.length > 0 && (
-        <div>
-          {pageNumbers.map((page) => (
-            <Link to={`/category/${props.match.params.name}/page/${page}`}>
+        <>
+          {pageNumbers.map((page, index) => (
+            <Link
+              to={`/category/${props.match.params.name}/page/${page}`}
+              key={index}
+            >
               <button
                 type="button"
                 className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
@@ -108,7 +110,7 @@ export default function ViewAll(props) {
               </button>
             </Link>
           ))}
-        </div>
+        </>
       )}
     </div>
   );

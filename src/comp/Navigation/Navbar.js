@@ -1,8 +1,10 @@
-import { useState, useEffect, useContext } from "react";
+import { useMemo, useState, useEffect, useContext } from "react";
 import { Fragment } from "react";
 import { LoginContext } from "../../contexts/LoginContext";
 import { Menu, Transition } from "@headlessui/react";
-import { BellIcon } from "@heroicons/react/outline";
+import { createAvatar } from "@dicebear/avatars";
+import * as style from "@dicebear/avatars-initials-sprites";
+// import { BellIcon } from "@heroicons/react/outline";
 import "../../css/Navbar.scss";
 
 export default function Navbar() {
@@ -24,6 +26,18 @@ export default function Navbar() {
         }
       })
       .catch((err) => console.log("couldnt fetch current user"));
+  }, []);
+
+  const avatar = useMemo(() => {
+    const fullName =
+      currentUser.first_name !== undefined &&
+      currentUser.first_name + currentUser.last_name;
+
+    return createAvatar(style, {
+      dataUri: true,
+      size: 128,
+      seed: JSON.stringify(fullName),
+    });
   }, []);
 
   const logout = () => {
@@ -100,16 +114,10 @@ export default function Navbar() {
 
           {currentUser.email !== undefined ? (
             <Menu as="div" className="mx-3 relative self-center z-10">
-              <div>
-                <Menu.Button className="bg-gray-800 flex text-sm rounded-full outline-none">
-                  <span className="sr-only">Open user menu</span>
-                  <img
-                    className="h-8 w-8 rounded-full"
-                    src="https://i.imgur.com/PIBMdb1.png"
-                    alt=""
-                  />
-                </Menu.Button>
-              </div>
+              <Menu.Button className="bg-gray-800 flex text-sm rounded-full outline-none">
+                <span className="sr-only">Open user menu</span>
+                <img className="h-11 w-11 rounded" src={avatar} alt="avatar" />
+              </Menu.Button>
               <Transition
                 as={Fragment}
                 enter="transition ease-out duration-100"
